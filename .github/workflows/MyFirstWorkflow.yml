@@ -1,7 +1,9 @@
 name: myFirstWorkflow
 # To be triggered on all pushes in this repo in any branch
-on: push
-
+on: 
+  #push:
+  schedule:
+    - cron: "*/1 * * * *"
 jobs:
   job1:
     name: JOB1
