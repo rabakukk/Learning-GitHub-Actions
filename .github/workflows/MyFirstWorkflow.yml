@@ -1,3 +1,13 @@
 name: myFirstWorkflow
 # To be triggered on all pushes in this repo in any branch
 on: push
+
+jobs:
+  job1:
+    name: JOB1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running signle command in JOB1
+        run: echo "Hi, this is my first GitHub workflow"
+      - name: Checking OS release for GitHub hosted runner
+        run: cat /etc/os-release
