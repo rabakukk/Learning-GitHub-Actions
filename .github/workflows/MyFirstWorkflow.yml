@@ -50,4 +50,4 @@ jobs:
           pwd
           ls -ltr    
       - name: step for PR demos
-        run: exit 1
+        run: exit 0
