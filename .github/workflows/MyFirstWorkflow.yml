@@ -2,6 +2,9 @@ name: myFirstWorkflow
 # To be triggered on all pushes in this repo in any branch
 on: 
   push:
+    branches:
+      - main
+      - dev
 jobs:
   job1:
     name: JOB1
