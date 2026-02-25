@@ -39,6 +39,7 @@ jobs:
             artifacts/
             !**/hostname.txt
   job2:
+    needs: job1
     name: JOB2
     runs-on: ubuntu-latest
     steps:
