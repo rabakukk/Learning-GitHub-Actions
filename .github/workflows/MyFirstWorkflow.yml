@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checking current directory
-        run:
+        run: |
           pwd
           ls -ltr
       - name: download single file artifact
@@ -52,6 +52,6 @@ jobs:
         with:
           name: single_file
       - name: checking current directory post download
-        run:
+        run: |
           pwd
           ls -ltr    
