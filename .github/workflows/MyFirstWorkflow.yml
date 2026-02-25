@@ -2,6 +2,7 @@ name: myFirstWorkflow
 # To be triggered on all pushes in this repo in any branch
 on: 
   push:
+    branches: dev, 'feature-*'
 jobs:
   job1:
     name: JOB1
@@ -25,19 +26,6 @@ jobs:
         with:
           name: single_file
           path: ./myartifact.txt
-      - name: Upload from directory
-        uses: actions/upload-artifact@v6.0.0 
-        with:
-          name: directory_artifacts
-          path: artifacts/
-      - name: Upload from multiple paths with exclusions
-        uses: actions/upload-artifact@v6.0.0 
-        with: 
-          name: multiple_paths_with_exclusions
-          path: |
-            ./myartifact.txt
-            artifacts/
-            !**/hostname.txt
   job2:
     needs: job1
     name: JOB2
@@ -55,50 +43,4 @@ jobs:
         run: |
           pwd
           ls -ltr    
-  job3:
-    needs: job1
-    name: JOB3
-    runs-on: ubuntu-latest
-    steps:
-      - name: checking current directory
-        run: |
-          pwd
-          ls -ltr
-      - name: download directory
-        uses: actions/download-artifact@v7.0.0
-        with:
-          name: directory_artifacts
-      - name: checking current directory post download
-        run: |
-          pwd
-          ls -ltr    
-  job4:
-    needs: job1
-    name: JOB4
-    runs-on: ubuntu-latest
-    steps:
-      - name: create custom folder for downloads
-        run: |
-          mkdir -p single_file
-          mkdir -p download_directory
-      - name: checking current directory
-        run: |
-          pwd
-          ls -ltr
-      - name: download single file artifact
-        uses: actions/download-artifact@v7.0.0
-        with:
-          name: single_file   
-          path: single_file
-      - name: download directory
-        uses: actions/download-artifact@v7.0.0
-        with:
-          name: directory_artifacts
-          path: download_directory
-      - name: checking current directory post download
-        run: |
-          pwd
-          echo "Checking single file"
-          ls -ltr single_file
-          echo "Checking directory"
-          ls -ltr download_directory
+  
