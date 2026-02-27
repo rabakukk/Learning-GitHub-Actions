@@ -6,9 +6,6 @@ on:
       - dev
       - 'feature-*'
       - main
-#  pull_request:
-#    branches:
-#      - main
 env: 
   ENV_TYPE: DEV
   APP_USER: thinknyx
