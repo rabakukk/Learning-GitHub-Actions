@@ -62,6 +62,7 @@ jobs:
         run: |
           echo "[INFO] Triggered by ${{ github.event_name }}."
           echo "[INFO] New changs are added by ${{ github.actor }} in ${{ github.ref_name }} branch."
+          echo "[INFO] New changs are added by ${{ github.actor }} in ${{ github.head_ref }} branch."  
           echo "[INFO] Current step is running on ${{ runner.os }}."
           echo "[INFO] Current JOB ID is ${{ job.check_run_id }}."
   staging:
@@ -77,7 +78,7 @@ jobs:
     environment:
       name: Staging
     if: github.ref == 'refs/heads/dev'  
-       # github.head_ref == 'refs/heads/dev'   if coming from a PR
+       # github.head_ref == 'dev'   if coming from a PR
   production: 
     name: PRODUCTION DEPLOYMENT
     runs-on: uubuntu-latest
