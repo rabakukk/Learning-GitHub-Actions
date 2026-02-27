@@ -94,4 +94,4 @@ jobs:
           echo "[INFO] Password for ${{ vars.USER }} is ${{ secrets.PASSWORD }}."
     environment:
       name: PRODUCTION
-    if: github.head_ref == 'main'  
+    if: github.ref == 'refs/heads/main'  
