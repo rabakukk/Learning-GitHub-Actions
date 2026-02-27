@@ -77,7 +77,7 @@ jobs:
           echo "[INFO] Running deployment on ${{ vars.HOST }} using ${{ vars.USER }}." 
       - name: Referring Env Secrets
         run: |
-          echo "[INFO] Password for ${{ vars.USER }} is ${{ secrets.PASSWORD }}."
+          echo "[INFO] Password for ${{ vars.USER }} is ${{ secrets.PASSWORD }}. "
     environment:
       name: Staging
     if: github.ref == 'refs/heads/dev'  
