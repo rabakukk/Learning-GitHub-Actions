@@ -76,7 +76,7 @@ jobs:
           echo "[INFO] Password for ${{ vars.USER }} is ${{ secrets.PASSWORD }}."
     environment:
       name: Staging
-  production:
+  production: 
     name: PRODUCTION DEPLOYMENT
     runs-on: uubuntu-latest
     steps:
