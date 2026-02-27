@@ -82,9 +82,9 @@ jobs:
       name: Staging
     if: github.ref == 'refs/heads/dev'  
        # github.head_ref == 'dev'   if coming from a PR
-  production: 
-    name: PRODUCTION DEPLOYMENT
-    runs-on: uubuntu-latest
+  production:
+    name: Production deployment
+    runs-on: ubuntu-latest
     steps:
       - name: Referring Environment Variables
         run: |
@@ -93,6 +93,5 @@ jobs:
         run: |
           echo "[INFO] Password for ${{ vars.USER }} is ${{ secrets.PASSWORD }}."
     environment:
-      name: PRODUCTION     
-    if: github.ref == 'refs/heads/main'      
-      
+      name: PRODUCTION
+    if: github.head_ref == 'main'  
